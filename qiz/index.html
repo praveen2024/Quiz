@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <h1 id="heading">Total Questions is 3</h1>
+    <div class="container">
+        <h4 id = "red">Q1 what is 100+200?</h4>
+        <br>
+        <hr>
+        <br>
+        <input type="radio" name="question1" id="correct1">300<br>
+        <input type="radio" name="question1">400<br>
+        <input type="radio" name="question1">150<br>
+        <input type="radio" name="question1">600<br>
+        <button class="next" id = "btn"onclick="next(1)">NEXT</button>
+    </div>
+
+    <div class="container">
+        <h4 id = "red">Q2 what is 100+300?</h4><br><hr>
+        <br>
+        <input type="radio" name="question2" >300<br>
+        <input type="radio" name="question2" id="correct2">400<br>
+        <input type="radio" name="question2">150<br>
+        <input type="radio" name="question2">600<br>
+        <button class="next" id = "btn" onclick="next(2)">NEXT</button>
+    </div>
+
+    <div class="container">
+        <h4 id = "red">Q3 what is 300+200?</h4><br><hr>
+        <br>
+        <input type="radio" name="question3" >300<br>
+        <input type="radio" name="question3">400<br>
+        <input type="radio" name="question3">150<br>
+        <input type="radio" name="question3" id="correct3">500<br>
+        <button onclick="result()" id = "btn">SUBMIT QUIZ</button>
+    </div>
+    <script>
+        // displaying the first block of question
+        document.getElementsByClassName('container')[0].style.display = "block";
+
+        // DEFINING THE NEXT FUNCTION
+        function next(id) {
+            document.getElementsByClassName('container')[id-1].style.display = "none";
+            document.getElementsByClassName('container')[id].style.display = "block";
+        }
+        //getting final result
+        function result() {
+            var score = 0;
+            if (document.getElementById('correct1').checked) {
+                score++;
+            }
+            if (document.getElementById('correct2').checked) {
+                score++;
+            }
+            if (document.getElementById('correct3').checked) {
+                score++;
+            }
+            alert("your score is: "+ score);
+        }
+    </script>
+</body>
+</html>
